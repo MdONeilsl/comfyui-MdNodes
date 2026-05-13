@@ -1,0 +1,6 @@
+[project]
+name = "mdnodes"
+version = "1.0.0"
+description = "A ComfyUI node pack with custom nodes"
+license = { file = "LICENSE" }
+dependencies = []

@@ -1,0 +1,3054 @@
+{
+    "id": "0eecdd67-639f-4c45-a4b7-f2cf8a20077f",
+    "revision": 0,
+    "last_node_id": 64,
+    "last_link_id": 69,
+    "nodes": [
+        {
+            "id": 11,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                1590
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        10
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "360_F_205734963_W0zQEWTdFCEqzaG1nMaMKvka1SwMSmUp.webp",
+                "image"
+            ]
+        },
+        {
+            "id": 21,
+            "type": "mdNormalMapScaler",
+            "pos": [
+                -70,
+                2590
+            ],
+            "size": [
+                210,
+                110
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 26
+                },
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "INT",
+                    "widget": {
+                        "name": "width"
+                    },
+                    "link": 27
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "INT",
+                    "widget": {
+                        "name": "height"
+                    },
+                    "link": 24
+                },
+                {
+                    "localized_name": "convention",
+                    "name": "convention",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "convention"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "result",
+                    "name": "result",
+                    "type": "IMAGE",
+                    "links": [
+                        21
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdNormalMapScaler"
+            },
+            "widgets_values": [
+                1024,
+                1024,
+                "OpenGL"
+            ]
+        },
+        {
+            "id": 19,
+            "type": "mdBlankMask",
+            "pos": [
+                -70,
+                2760
+            ],
+            "size": [
+                210,
+                130
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "INT",
+                    "widget": {
+                        "name": "width"
+                    },
+                    "link": 28
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "INT",
+                    "widget": {
+                        "name": "height"
+                    },
+                    "link": 25
+                },
+                {
+                    "localized_name": "batch_size",
+                    "name": "batch_size",
+                    "type": "INT",
+                    "widget": {
+                        "name": "batch_size"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "color",
+                    "name": "color",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "color"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "links": [
+                        17
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdBlankMask"
+            },
+            "widgets_values": [
+                360,
+                360,
+                1,
+                "white"
+            ]
+        },
+        {
+            "id": 13,
+            "type": "mdStandardMapSize",
+            "pos": [
+                -450,
+                2220
+            ],
+            "size": [
+                230,
+                150
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "width"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "height"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "round",
+                    "name": "round",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "round"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "INT",
+                    "links": [
+                        22,
+                        27,
+                        28
+                    ]
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "INT",
+                    "links": [
+                        23,
+                        24,
+                        25
+                    ]
+                },
+                {
+                    "localized_name": "round",
+                    "name": "round",
+                    "type": "STRING",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdStandardMapSize"
+            },
+            "widgets_values": [
+                1024,
+                1024,
+                "flooring"
+            ]
+        },
+        {
+            "id": 22,
+            "type": "mdStandardMapSize",
+            "pos": [
+                -450,
+                1980
+            ],
+            "size": [
+                230,
+                150
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "width"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "height"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "round",
+                    "name": "round",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "round"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "INT",
+                    "links": [
+                        29
+                    ]
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "INT",
+                    "links": [
+                        30
+                    ]
+                },
+                {
+                    "localized_name": "round",
+                    "name": "round",
+                    "type": "STRING",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdStandardMapSize"
+            },
+            "widgets_values": [
+                1024,
+                1024,
+                "flooring"
+            ]
+        },
+        {
+            "id": 12,
+            "type": "PreviewImage",
+            "pos": [
+                110,
+                1780
+            ],
+            "size": [
+                240,
+                300
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 29,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "images",
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 11
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "PreviewImage"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 10,
+            "type": "mdNormalMapScaler",
+            "pos": [
+                -130,
+                1780
+            ],
+            "size": [
+                210,
+                110
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 10
+                },
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "INT",
+                    "widget": {
+                        "name": "width"
+                    },
+                    "link": 29
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "INT",
+                    "widget": {
+                        "name": "height"
+                    },
+                    "link": 30
+                },
+                {
+                    "localized_name": "convention",
+                    "name": "convention",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "convention"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "result",
+                    "name": "result",
+                    "type": "IMAGE",
+                    "links": [
+                        11
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdNormalMapScaler"
+            },
+            "widgets_values": [
+                1024,
+                1024,
+                "OpenGL"
+            ]
+        },
+        {
+            "id": 20,
+            "type": "mdNormalMapScaler",
+            "pos": [
+                -70,
+                2430
+            ],
+            "size": [
+                210,
+                110
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 18
+                },
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "INT",
+                    "widget": {
+                        "name": "width"
+                    },
+                    "link": 22
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "INT",
+                    "widget": {
+                        "name": "height"
+                    },
+                    "link": 23
+                },
+                {
+                    "localized_name": "convention",
+                    "name": "convention",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "convention"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "result",
+                    "name": "result",
+                    "type": "IMAGE",
+                    "links": [
+                        19
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdNormalMapScaler"
+            },
+            "widgets_values": [
+                1024,
+                1024,
+                "OpenGL"
+            ]
+        },
+        {
+            "id": 15,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                2430
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        18
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "BumpMapTexturePreview.png",
+                "image"
+            ]
+        },
+        {
+            "id": 14,
+            "type": "mdNormalMapMerger",
+            "pos": [
+                250,
+                2430
+            ],
+            "size": [
+                270,
+                100
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 30,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "base",
+                    "name": "base",
+                    "type": "IMAGE",
+                    "link": 19
+                },
+                {
+                    "localized_name": "add",
+                    "name": "add",
+                    "type": "IMAGE",
+                    "link": 21
+                },
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 17
+                },
+                {
+                    "localized_name": "convention",
+                    "name": "convention",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "convention"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "result",
+                    "name": "result",
+                    "type": "IMAGE",
+                    "links": [
+                        16
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdNormalMapMerger"
+            },
+            "widgets_values": [
+                "OpenGL"
+            ]
+        },
+        {
+            "id": 16,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                2810
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        26
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "360_F_205734963_W0zQEWTdFCEqzaG1nMaMKvka1SwMSmUp.webp",
+                "image"
+            ]
+        },
+        {
+            "id": 17,
+            "type": "PreviewImage",
+            "pos": [
+                580,
+                2430
+            ],
+            "size": [
+                140,
+                250
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 40,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "images",
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 16
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "PreviewImage"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 24,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                3250
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        31
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "height_map.png",
+                "image"
+            ]
+        },
+        {
+            "id": 28,
+            "type": "Fast Groups Bypasser (rgthree)",
+            "pos": [
+                -850,
+                2180
+            ],
+            "size": [
+                370,
+                202
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": []
+                }
+            ],
+            "title": "Filter switch",
+            "properties": {
+                "matchColors": "",
+                "matchTitle": "MapDemo",
+                "showNav": true,
+                "showAllGraphs": true,
+                "sort": "position",
+                "customSortAlphabet": "",
+                "toggleRestriction": "default"
+            }
+        },
+        {
+            "id": 25,
+            "type": "PreviewImage",
+            "pos": [
+                170,
+                3250
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 31,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "images",
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 32
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "PreviewImage"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 23,
+            "type": "mdHeightToNormalMap",
+            "pos": [
+                -160,
+                3250
+            ],
+            "size": [
+                270,
+                160
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 23,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 31
+                },
+                {
+                    "localized_name": "strength",
+                    "name": "strength",
+                    "type": "FLOAT",
+                    "widget": {
+                        "name": "strength"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "invert_red",
+                    "name": "invert_red",
+                    "type": "BOOLEAN",
+                    "widget": {
+                        "name": "invert_red"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "invert_green",
+                    "name": "invert_green",
+                    "type": "BOOLEAN",
+                    "widget": {
+                        "name": "invert_green"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "smoothing",
+                    "name": "smoothing",
+                    "type": "INT",
+                    "widget": {
+                        "name": "smoothing"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "use_scharr",
+                    "name": "use_scharr",
+                    "type": "BOOLEAN",
+                    "widget": {
+                        "name": "use_scharr"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "result",
+                    "name": "result",
+                    "type": "IMAGE",
+                    "links": [
+                        32
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdHeightToNormalMap"
+            },
+            "widgets_values": [
+                0.1,
+                true,
+                true,
+                2,
+                true
+            ]
+        },
+        {
+            "id": 26,
+            "type": "Fast Groups Bypasser (rgthree)",
+            "pos": [
+                -850,
+                1540
+            ],
+            "size": [
+                370,
+                202
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": []
+                }
+            ],
+            "title": "Filter switch",
+            "properties": {
+                "matchColors": "",
+                "matchTitle": "MapDemo",
+                "showNav": true,
+                "showAllGraphs": true,
+                "sort": "position",
+                "customSortAlphabet": "",
+                "toggleRestriction": "default"
+            }
+        },
+        {
+            "id": 32,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                4050
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        41
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": []
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "height_map.png",
+                "image"
+            ]
+        },
+        {
+            "id": 34,
+            "type": "mdShowTensorShape",
+            "pos": [
+                920,
+                4070
+            ],
+            "size": [
+                400,
+                120
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 46,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "*",
+                    "link": 37
+                },
+                {
+                    "localized_name": "info_display",
+                    "name": "info_display",
+                    "type": "STRING",
+                    "widget": {
+                        "name": "info_display"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "passthrough",
+                    "name": "passthrough",
+                    "type": "*",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdShowTensorShape"
+            },
+            "widgets_values": [
+                "Batch shape: [1, 360, 360, 4]\nDtype: torch.float32\nDevice: cpu\nGlobal min: 0.0000  max: 1.0000  mean: 0.6105\nSample 0: shape [360, 360, 4]  min 0.0000  max 1.0000  mean 0.6105"
+            ]
+        },
+        {
+            "id": 30,
+            "type": "mdApplySpec2NormalMap",
+            "pos": [
+                550,
+                3680
+            ],
+            "size": [
+                300,
+                50
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 43,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 34
+                },
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 39
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": [
+                        36,
+                        37
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdApplySpec2NormalMap"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 31,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                3680
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        34,
+                        40
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "360_F_205734963_W0zQEWTdFCEqzaG1nMaMKvka1SwMSmUp.webp",
+                "image"
+            ]
+        },
+        {
+            "id": 33,
+            "type": "PreviewImage",
+            "pos": [
+                1090,
+                3680
+            ],
+            "size": [
+                230,
+                300
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 45,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "images",
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 36
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "PreviewImage"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 36,
+            "type": "GetImageSize",
+            "pos": [
+                -190,
+                3800
+            ],
+            "size": [
+                140,
+                130
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 24,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 40
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "INT",
+                    "links": [
+                        43
+                    ]
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "INT",
+                    "links": [
+                        44
+                    ]
+                },
+                {
+                    "localized_name": "batch_size",
+                    "name": "batch_size",
+                    "type": "INT",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "GetImageSize"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 37,
+            "type": "ResizeImageMaskNode",
+            "pos": [
+                0,
+                3880
+            ],
+            "size": [
+                260,
+                160
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 32,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "input",
+                    "name": "input",
+                    "type": "IMAGE,MASK",
+                    "link": 41
+                },
+                {
+                    "localized_name": "resize_type",
+                    "name": "resize_type",
+                    "type": "COMFY_DYNAMICCOMBO_V3",
+                    "widget": {
+                        "name": "resize_type"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "width",
+                    "name": "resize_type.width",
+                    "type": "INT",
+                    "widget": {
+                        "name": "resize_type.width"
+                    },
+                    "link": 43
+                },
+                {
+                    "localized_name": "height",
+                    "name": "resize_type.height",
+                    "type": "INT",
+                    "widget": {
+                        "name": "resize_type.height"
+                    },
+                    "link": 44
+                },
+                {
+                    "localized_name": "crop",
+                    "name": "resize_type.crop",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "resize_type.crop"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "scale_method",
+                    "name": "scale_method",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "scale_method"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "resized",
+                    "name": "resized",
+                    "type": "IMAGE",
+                    "links": [
+                        42
+                    ]
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "ResizeImageMaskNode"
+            },
+            "widgets_values": [
+                "scale dimensions",
+                512,
+                512,
+                "disabled",
+                "lanczos"
+            ]
+        },
+        {
+            "id": 29,
+            "type": "Fast Groups Bypasser (rgthree)",
+            "pos": [
+                -850,
+                3210
+            ],
+            "size": [
+                370,
+                202
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": []
+                }
+            ],
+            "title": "Filter switch",
+            "properties": {
+                "matchColors": "",
+                "matchTitle": "MapDemo",
+                "showNav": true,
+                "showAllGraphs": true,
+                "sort": "position",
+                "customSortAlphabet": "",
+                "toggleRestriction": "default"
+            }
+        },
+        {
+            "id": 35,
+            "type": "mdImageToGrayMask",
+            "pos": [
+                290,
+                3780
+            ],
+            "size": [
+                240,
+                30
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 41,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 42
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "links": [
+                        39
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdImageToGrayMask"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 41,
+            "type": "PreviewImage",
+            "pos": [
+                180,
+                4480
+            ],
+            "size": [
+                210,
+                260
+            ],
+            "flags": {},
+            "order": 33,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "images",
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 46
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "PreviewImage"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 42,
+            "type": "MaskPreview",
+            "pos": [
+                190,
+                4800
+            ],
+            "size": [
+                210,
+                260
+            ],
+            "flags": {},
+            "order": 34,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 47
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "MaskPreview"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 40,
+            "type": "mdSmoothRoughConvert",
+            "pos": [
+                -150,
+                4480
+            ],
+            "size": [
+                270,
+                60
+            ],
+            "flags": {},
+            "order": 25,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "input_data",
+                    "name": "input_data",
+                    "type": "*",
+                    "link": 45
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": [
+                        46
+                    ]
+                },
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "links": [
+                        47
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdSmoothRoughConvert"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 38,
+            "type": "Fast Groups Bypasser (rgthree)",
+            "pos": [
+                -930,
+                3650
+            ],
+            "size": [
+                440,
+                202
+            ],
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": []
+                }
+            ],
+            "title": "Filter switch",
+            "properties": {
+                "matchColors": "",
+                "matchTitle": "MapDemo",
+                "showNav": true,
+                "showAllGraphs": true,
+                "sort": "position",
+                "customSortAlphabet": "",
+                "toggleRestriction": "default"
+            }
+        },
+        {
+            "id": 39,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                4480
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        45
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": []
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "height_map.png",
+                "image"
+            ]
+        },
+        {
+            "id": 55,
+            "type": "GetImageSize",
+            "pos": [
+                -150,
+                5270
+            ],
+            "size": [
+                220,
+                130
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 27,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 62
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "width",
+                    "name": "width",
+                    "type": "INT",
+                    "links": [
+                        58
+                    ]
+                },
+                {
+                    "localized_name": "height",
+                    "name": "height",
+                    "type": "INT",
+                    "links": [
+                        59
+                    ]
+                },
+                {
+                    "localized_name": "batch_size",
+                    "name": "batch_size",
+                    "type": "INT",
+                    "links": null
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "GetImageSize"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 52,
+            "type": "PreviewImage",
+            "pos": [
+                1010,
+                5180
+            ],
+            "size": [
+                230,
+                270
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 47,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "images",
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 55
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "PreviewImage"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 56,
+            "type": "ResizeImageMaskNode",
+            "pos": [
+                110,
+                5370
+            ],
+            "size": [
+                260,
+                160
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 35,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "input",
+                    "name": "input",
+                    "type": "IMAGE,MASK",
+                    "link": 60
+                },
+                {
+                    "localized_name": "resize_type",
+                    "name": "resize_type",
+                    "type": "COMFY_DYNAMICCOMBO_V3",
+                    "widget": {
+                        "name": "resize_type"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "width",
+                    "name": "resize_type.width",
+                    "type": "INT",
+                    "widget": {
+                        "name": "resize_type.width"
+                    },
+                    "link": 58
+                },
+                {
+                    "localized_name": "height",
+                    "name": "resize_type.height",
+                    "type": "INT",
+                    "widget": {
+                        "name": "resize_type.height"
+                    },
+                    "link": 59
+                },
+                {
+                    "localized_name": "crop",
+                    "name": "resize_type.crop",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "resize_type.crop"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "scale_method",
+                    "name": "scale_method",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "scale_method"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "resized",
+                    "name": "resized",
+                    "type": "IMAGE",
+                    "links": [
+                        61
+                    ]
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "ResizeImageMaskNode"
+            },
+            "widgets_values": [
+                "scale dimensions",
+                512,
+                512,
+                "disabled",
+                "lanczos"
+            ]
+        },
+        {
+            "id": 53,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                5570
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        60
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": []
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "background.jpg",
+                "image"
+            ]
+        },
+        {
+            "id": 50,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                5180
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        51,
+                        62
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": []
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "robot.png",
+                "image"
+            ]
+        },
+        {
+            "id": 54,
+            "type": "mdImageToGrayMask",
+            "pos": [
+                420,
+                5370
+            ],
+            "size": [
+                220,
+                30
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 42,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 61
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "links": [
+                        63
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdImageToGrayMask"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 51,
+            "type": "mdImageToGrayMask",
+            "pos": [
+                -140,
+                5180
+            ],
+            "size": [
+                220,
+                30
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 26,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 51
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "links": [
+                        52,
+                        64
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdImageToGrayMask"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 49,
+            "type": "mdChannelMixer",
+            "pos": [
+                700,
+                5180
+            ],
+            "size": [
+                270,
+                110
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 44,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "red_mask",
+                    "name": "red_mask",
+                    "shape": 7,
+                    "type": "MASK",
+                    "link": 52
+                },
+                {
+                    "localized_name": "green_mask",
+                    "name": "green_mask",
+                    "shape": 7,
+                    "type": "MASK",
+                    "link": 64
+                },
+                {
+                    "localized_name": "blue_mask",
+                    "name": "blue_mask",
+                    "shape": 7,
+                    "type": "MASK",
+                    "link": 63
+                },
+                {
+                    "localized_name": "alpha_mask",
+                    "name": "alpha_mask",
+                    "shape": 7,
+                    "type": "MASK",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": [
+                        55
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdChannelMixer"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 43,
+            "type": "Fast Groups Bypasser (rgthree)",
+            "pos": [
+                -950,
+                4460
+            ],
+            "size": [
+                440,
+                202
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": []
+                }
+            ],
+            "title": "Filter switch",
+            "properties": {
+                "matchColors": "",
+                "matchTitle": "MapDemo",
+                "showNav": true,
+                "showAllGraphs": true,
+                "sort": "position",
+                "customSortAlphabet": "",
+                "toggleRestriction": "default"
+            }
+        },
+        {
+            "id": 61,
+            "type": "MaskPreview",
+            "pos": [
+                350,
+                6320
+            ],
+            "size": [
+                210,
+                260
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 37,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 67
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "MaskPreview"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 62,
+            "type": "MaskPreview",
+            "pos": [
+                350,
+                6640
+            ],
+            "size": [
+                210,
+                260
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 38,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 68
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "MaskPreview"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 63,
+            "type": "MaskPreview",
+            "pos": [
+                350,
+                6960
+            ],
+            "size": [
+                210,
+                260
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 39,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 69
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "MaskPreview"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 60,
+            "type": "MaskPreview",
+            "pos": [
+                350,
+                6000
+            ],
+            "size": [
+                210,
+                260
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 36,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "mask",
+                    "name": "mask",
+                    "type": "MASK",
+                    "link": 66
+                }
+            ],
+            "outputs": [],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.20.3",
+                "Node name for S&R": "MaskPreview"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 59,
+            "type": "LoadImage",
+            "pos": [
+                -450,
+                6000
+            ],
+            "size": [
+                230,
+                330
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "COMBO",
+                    "widget": {
+                        "name": "image"
+                    },
+                    "link": null
+                },
+                {
+                    "localized_name": "choose file to upload",
+                    "name": "upload",
+                    "type": "IMAGEUPLOAD",
+                    "widget": {
+                        "name": "upload"
+                    },
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "IMAGE",
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        65
+                    ]
+                },
+                {
+                    "localized_name": "MASK",
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": []
+                }
+            ],
+            "properties": {
+                "cnr_id": "comfy-core",
+                "ver": "0.19.5",
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "background.jpg",
+                "image"
+            ]
+        },
+        {
+            "id": 58,
+            "type": "mdChannelToMasks",
+            "pos": [
+                -130,
+                6000
+            ],
+            "size": [
+                198.4458984375,
+                86
+            ],
+            "flags": {
+                "pinned": true
+            },
+            "order": 28,
+            "mode": 0,
+            "inputs": [
+                {
+                    "localized_name": "image",
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 65
+                }
+            ],
+            "outputs": [
+                {
+                    "localized_name": "red",
+                    "name": "red",
+                    "type": "MASK",
+                    "links": [
+                        66
+                    ]
+                },
+                {
+                    "localized_name": "green",
+                    "name": "green",
+                    "type": "MASK",
+                    "links": [
+                        67
+                    ]
+                },
+                {
+                    "localized_name": "blue",
+                    "name": "blue",
+                    "type": "MASK",
+                    "links": [
+                        68
+                    ]
+                },
+                {
+                    "localized_name": "alpha",
+                    "name": "alpha",
+                    "type": "MASK",
+                    "links": [
+                        69
+                    ]
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "mdChannelToMasks"
+            },
+            "widgets_values": []
+        },
+        {
+            "id": 57,
+            "type": "Fast Groups Bypasser (rgthree)",
+            "pos": [
+                -940,
+                5140
+            ],
+            "size": [
+                440,
+                202
+            ],
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": []
+                }
+            ],
+            "title": "Filter switch",
+            "properties": {
+                "matchColors": "",
+                "matchTitle": "MapDemo",
+                "showNav": true,
+                "showAllGraphs": true,
+                "sort": "position",
+                "customSortAlphabet": "",
+                "toggleRestriction": "default"
+            }
+        },
+        {
+            "id": 64,
+            "type": "Fast Groups Bypasser (rgthree)",
+            "pos": [
+                -950,
+                5970
+            ],
+            "size": [
+                440,
+                202
+            ],
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "OPT_CONNECTION",
+                    "type": "*",
+                    "links": []
+                }
+            ],
+            "title": "Filter switch",
+            "properties": {
+                "matchColors": "",
+                "matchTitle": "MapDemo",
+                "showNav": true,
+                "showAllGraphs": true,
+                "sort": "position",
+                "customSortAlphabet": "",
+                "toggleRestriction": "default"
+            }
+        }
+    ],
+    "links": [
+        [
+            10,
+            11,
+            0,
+            10,
+            0,
+            "IMAGE"
+        ],
+        [
+            11,
+            10,
+            0,
+            12,
+            0,
+            "IMAGE"
+        ],
+        [
+            16,
+            14,
+            0,
+            17,
+            0,
+            "IMAGE"
+        ],
+        [
+            17,
+            19,
+            0,
+            14,
+            2,
+            "MASK"
+        ],
+        [
+            18,
+            15,
+            0,
+            20,
+            0,
+            "IMAGE"
+        ],
+        [
+            19,
+            20,
+            0,
+            14,
+            0,
+            "IMAGE"
+        ],
+        [
+            21,
+            21,
+            0,
+            14,
+            1,
+            "IMAGE"
+        ],
+        [
+            22,
+            13,
+            0,
+            20,
+            1,
+            "INT"
+        ],
+        [
+            23,
+            13,
+            1,
+            20,
+            2,
+            "INT"
+        ],
+        [
+            24,
+            13,
+            1,
+            21,
+            2,
+            "INT"
+        ],
+        [
+            25,
+            13,
+            1,
+            19,
+            1,
+            "INT"
+        ],
+        [
+            26,
+            16,
+            0,
+            21,
+            0,
+            "IMAGE"
+        ],
+        [
+            27,
+            13,
+            0,
+            21,
+            1,
+            "INT"
+        ],
+        [
+            28,
+            13,
+            0,
+            19,
+            0,
+            "INT"
+        ],
+        [
+            29,
+            22,
+            0,
+            10,
+            1,
+            "INT"
+        ],
+        [
+            30,
+            22,
+            1,
+            10,
+            2,
+            "INT"
+        ],
+        [
+            31,
+            24,
+            0,
+            23,
+            0,
+            "IMAGE"
+        ],
+        [
+            32,
+            23,
+            0,
+            25,
+            0,
+            "IMAGE"
+        ],
+        [
+            34,
+            31,
+            0,
+            30,
+            0,
+            "IMAGE"
+        ],
+        [
+            36,
+            30,
+            0,
+            33,
+            0,
+            "IMAGE"
+        ],
+        [
+            37,
+            30,
+            0,
+            34,
+            0,
+            "IMAGE"
+        ],
+        [
+            39,
+            35,
+            0,
+            30,
+            1,
+            "MASK"
+        ],
+        [
+            40,
+            31,
+            0,
+            36,
+            0,
+            "IMAGE"
+        ],
+        [
+            41,
+            32,
+            0,
+            37,
+            0,
+            "IMAGE"
+        ],
+        [
+            42,
+            37,
+            0,
+            35,
+            0,
+            "IMAGE"
+        ],
+        [
+            43,
+            36,
+            0,
+            37,
+            2,
+            "INT"
+        ],
+        [
+            44,
+            36,
+            1,
+            37,
+            3,
+            "INT"
+        ],
+        [
+            45,
+            39,
+            0,
+            40,
+            0,
+            "IMAGE"
+        ],
+        [
+            46,
+            40,
+            0,
+            41,
+            0,
+            "IMAGE"
+        ],
+        [
+            47,
+            40,
+            1,
+            42,
+            0,
+            "MASK"
+        ],
+        [
+            51,
+            50,
+            0,
+            51,
+            0,
+            "IMAGE"
+        ],
+        [
+            52,
+            51,
+            0,
+            49,
+            0,
+            "MASK"
+        ],
+        [
+            55,
+            49,
+            0,
+            52,
+            0,
+            "IMAGE"
+        ],
+        [
+            58,
+            55,
+            0,
+            56,
+            2,
+            "INT"
+        ],
+        [
+            59,
+            55,
+            1,
+            56,
+            3,
+            "INT"
+        ],
+        [
+            60,
+            53,
+            0,
+            56,
+            0,
+            "IMAGE"
+        ],
+        [
+            61,
+            56,
+            0,
+            54,
+            0,
+            "IMAGE"
+        ],
+        [
+            62,
+            50,
+            0,
+            55,
+            0,
+            "IMAGE"
+        ],
+        [
+            63,
+            54,
+            0,
+            49,
+            2,
+            "MASK"
+        ],
+        [
+            64,
+            51,
+            0,
+            49,
+            1,
+            "MASK"
+        ],
+        [
+            65,
+            59,
+            0,
+            58,
+            0,
+            "IMAGE"
+        ],
+        [
+            66,
+            58,
+            0,
+            60,
+            0,
+            "MASK"
+        ],
+        [
+            67,
+            58,
+            1,
+            61,
+            0,
+            "MASK"
+        ],
+        [
+            68,
+            58,
+            2,
+            62,
+            0,
+            "MASK"
+        ],
+        [
+            69,
+            58,
+            3,
+            63,
+            0,
+            "MASK"
+        ]
+    ],
+    "groups": [
+        {
+            "id": 1,
+            "title": "MapDemo: Scale Normal Map",
+            "bounding": [
+                -460,
+                1510,
+                820,
+                623.6
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {
+                "pinned": true
+            }
+        },
+        {
+            "id": 2,
+            "title": "MapDemo: Merge Normap Map,",
+            "bounding": [
+                -460,
+                2150,
+                1190,
+                1003.6
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {
+                "pinned": true
+            }
+        },
+        {
+            "id": 3,
+            "title": "MapDemo: Height To Normal Map",
+            "bounding": [
+                -460,
+                3180,
+                874,
+                413.6
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {
+                "pinned": true
+            }
+        },
+        {
+            "id": 4,
+            "title": "MapDemo: Apply Specular to Normal Map",
+            "bounding": [
+                -460,
+                3610,
+                1790,
+                783.6
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {
+                "pinned": true
+            }
+        },
+        {
+            "id": 5,
+            "title": "MapDemo: Smooth/Rough Convert",
+            "bounding": [
+                -460,
+                4410,
+                869.9354240207767,
+                663.0788943946133
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {}
+        },
+        {
+            "id": 6,
+            "title": "MapDemo: Channel Mixer",
+            "bounding": [
+                -460,
+                5106.4,
+                1710,
+                803.6
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {
+                "pinned": true
+            }
+        },
+        {
+            "id": 7,
+            "title": "MapDemo: Channel To Masks",
+            "bounding": [
+                -460,
+                5930,
+                1030,
+                1303.6
+            ],
+            "color": "#3f789e",
+            "font_size": 24,
+            "flags": {
+                "pinned": true
+            }
+        }
+    ],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 0.47362440744768247,
+            "offset": [
+                2098.5175872241775,
+                -4531.280567813581
+            ]
+        },
+        "reroutes": [
+            {
+                "id": 1,
+                "pos": [
+                    -120,
+                    2480
+                ],
+                "linkIds": [
+                    23,
+                    24,
+                    25
+                ]
+            },
+            {
+                "id": 2,
+                "parentId": 1,
+                "pos": [
+                    -120,
+                    2650
+                ],
+                "linkIds": [
+                    24,
+                    25
+                ]
+            },
+            {
+                "id": 3,
+                "parentId": 2,
+                "pos": [
+                    -110,
+                    2810
+                ],
+                "linkIds": [
+                    25
+                ]
+            },
+            {
+                "id": 4,
+                "pos": [
+                    -100,
+                    2460
+                ],
+                "linkIds": [
+                    22,
+                    27,
+                    28
+                ]
+            },
+            {
+                "id": 5,
+                "parentId": 4,
+                "pos": [
+                    -100,
+                    2620
+                ],
+                "linkIds": [
+                    27,
+                    28
+                ]
+            },
+            {
+                "id": 7,
+                "parentId": 5,
+                "pos": [
+                    -90,
+                    2790
+                ],
+                "linkIds": [
+                    28
+                ]
+            }
+        ],
+        "linkExtensions": [
+            {
+                "id": 22,
+                "parentId": 4
+            },
+            {
+                "id": 23,
+                "parentId": 1
+            },
+            {
+                "id": 24,
+                "parentId": 2
+            },
+            {
+                "id": 25,
+                "parentId": 3
+            },
+            {
+                "id": 27,
+                "parentId": 5
+            },
+            {
+                "id": 28,
+                "parentId": 7
+            }
+        ]
+    },
+    "version": 0.4
+}
