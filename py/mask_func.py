@@ -9,7 +9,6 @@ def generate_blank(width: int, height: int, batch_size: int, color: str) -> torc
     gray = (r + g + b) / 3
     mask = torch.full((batch_size, height, width), gray, dtype=torch.float32,)
     return mask
-    
 #===================================================================================
 def invert_mask(mask: torch.Tensor) -> torch.Tensor:
     # Mask shape: [B, H, W]
@@ -21,26 +20,40 @@ def invert_mask(mask: torch.Tensor) -> torch.Tensor:
     inverted = 1.0 - mask_clamped
     
     return inverted
-
 #===================================================================================
-def to_luminance(image: torch.Tensor, intensity: float) -> torch.Tensor:
-    # image: (B, H, W, C), C >= 3, float [0,1]
-    r = image[..., 0]
-    g = image[..., 1]
-    b = image[..., 2]
-    lum = 0.299 * r + 0.587 * g + 0.114 * b
+def to_gray(image: torch.Tensor, kind: str, intensity: float) -> tuple[torch.Tensor]:
+    # average over the three colour channels
+    mask = None
 
-    # Scale and clamp
-    scaled = lum * intensity
+    if kind == "red":
+        mask = image[..., 0]
+        
+    elif kind == "green":
+        mask = image[..., 1] 
+        
+    elif kind == "blue":
+        mask = image[..., 2] 
+        
+    elif kind == "alpha":
+        B, H, W, C = image.shape
+        if C >= 4:
+            mask = image[..., 3]
+        else:
+            mask = torch.ones((B, H, W), device=image.device, dtype=image.dtype)
+        
+    elif kind == "mean":
+        mask = image[..., :3].mean(dim=-1)
+        
+    elif kind == "luminance":
+        r = image[..., 0]
+        g = image[..., 1]
+        b = image[..., 2]
+        mask = 0.299 * r + 0.587 * g + 0.114 * b
+
+    scaled = mask * intensity
     scaled = scaled.clamp(0.0, 1.0)
 
     return scaled
-
-#===================================================================================
-def to_gray(image: torch.Tensor) -> tuple[torch.Tensor]:
-    # average over the three colour channels
-    gray = image[..., :3].mean(dim=-1)
-    return gray
 #===================================================================================
 def trans_mask(image: torch.Tensor)-> torch.Tensor:
     # Expect shape [B, H, W, C]
@@ -48,7 +61,6 @@ def trans_mask(image: torch.Tensor)-> torch.Tensor:
         raise ValueError(f"Unexpected image shape: {image.shape}")
 
     B, H, W, C = image.shape
-
     if C >= 4:
         # Extract alpha channel
         mask = image[..., 3]
@@ -59,4 +71,5 @@ def trans_mask(image: torch.Tensor)-> torch.Tensor:
     # Clamp just in case (ComfyUI expects 0–1)
     mask = mask.clamp(0.0, 1.0)
 
-    return (mask,)
+    return mask
+#===================================================================================

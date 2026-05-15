@@ -2,9 +2,8 @@
 import torch
 
 from typing import Tuple
+
 #===================================================================================
-
-
 def tensor_shape_info(image: torch.Tensor) -> Tuple[str]:
     info_lines = []
 
@@ -41,3 +40,4 @@ def tensor_shape_info(image: torch.Tensor) -> Tuple[str]:
             )
 
     return info_lines 
+#===================================================================================

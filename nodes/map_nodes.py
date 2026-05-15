@@ -1,7 +1,7 @@
 
 import torch
 
-from ..py.map_func import scale_normal_map, merge_normal_maps, height_to_normal, smooth_rough_convert, mix_channel, split_channel
+from ..py.map_func import scale_normal_map, merge_normal_maps, height_to_normal, smooth_rough_convert, mix_channel, split_channel, split_alpha_chan
 from ..py.image_func import apply_alpha
 
 from typing import Tuple, Any
@@ -210,6 +210,24 @@ class mdChannelToMasks:
         return split_channel(image)
 
 #===================================================================================
+class mdSplitAlphaChannle:
+    
+    @classmethod
+    def INPUT_TYPES(cls)-> dict:
+        return {
+            "required": {
+                "image": ("IMAGE",),   # batch of images: (B, H, W, C)
+            }
+        }
+
+    RETURN_TYPES = ("IMAGE", "MASK")
+    RETURN_NAMES = ("rgb", "alpha")
+    FUNCTION = "exec"
+    CATEGORY = module_cat
+
+    def exec(self, image: torch.Tensor)-> tuple[torch.Tensor]:
+        return split_alpha_chan(image)
+#===================================================================================
 
 NODE_CLASS_MAPPINGS = {
     "mdStandardMapSize": mdStandardMapSize,
@@ -220,6 +238,7 @@ NODE_CLASS_MAPPINGS = {
     "mdSmoothRoughConvert": mdSmoothRoughConvert,
     "mdChannelMixer": mdChannelMixer,
     "mdChannelToMasks": mdChannelToMasks,
+    "mdSplitAlphaChannle": mdSplitAlphaChannle,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -231,4 +250,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "mdSmoothRoughConvert": "Smooth/Rough Convert (MD)",
     "mdChannelMixer": "Channel Mixer (MD)",
     "mdChannelToMasks": "Channel To Masks (MD)",
+    "mdSplitAlphaChannle": "Split Alpha Channel (MD)",
 }

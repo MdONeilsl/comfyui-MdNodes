@@ -468,7 +468,6 @@ def mix_channel(red_mask=None, green_mask=None, blue_mask=None, alpha_mask=None)
     output = torch.clamp(output, 0.0, 1.0)
 
     return output
-    
 #===================================================================================  
 def split_channel(image: torch.Tensor)-> tuple[torch.Tensor]:
     # Image tensor shape: (B, H, W, C)
@@ -494,4 +493,14 @@ def split_channel(image: torch.Tensor)-> tuple[torch.Tensor]:
 
     # Masks are expected to be float in [0,1]; image values are already in that range
     return (r, g, b, a)
-
+#===================================================================================
+def split_alpha_chan(image: torch.Tensor)-> tuple[torch.Tensor]:
+    rgb = image[..., :3]
+    
+    B, H, W, C = image.shape
+    if C >= 4:
+        alpha = image[..., 3]
+    else:
+        alpha = torch.ones((B, H, W), device=image.device, dtype=image.dtype)
+            
+    return (rgb, alpha)

@@ -4,7 +4,7 @@ import torch
 module_cat = "md/mask"
 
 from ..py.color_func import _COLORS
-from ..py.mask_func import generate_blank, invert_mask, to_luminance, to_gray, trans_mask
+from ..py.mask_func import generate_blank, invert_mask, to_gray, trans_mask
 from ..py.image_func import image_colorspace
 
 _COLOR_NAMES = list(_COLORS.keys())
@@ -52,42 +52,27 @@ class mdMaskInvert:
 
     def exec(self, mask: torch.Tensor) -> tuple[torch.Tensor]:
         return (invert_mask(mask),)
-
-#===================================================================================
-class mdImageToLuminanceMask:
-    """Extracts a luminance mask from an RGB/RGBA image (BT.601 coefficients)
-       with an intensity scale (0 = black, 1 = unchanged, 2 = brighter)."""
-    @classmethod
-    def INPUT_TYPES(cls)-> dict:
-        return {
-            "required": {
-                "image": ("IMAGE",),
-                "intensity": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 2.0, "step": 0.001,}),
-            }
-        }
-
-    RETURN_TYPES = ("MASK",)
-    RETURN_NAMES = ("mask",)
-    FUNCTION = "exec"
-    CATEGORY = module_cat   # assuming module_cat is defined; replace if needed
-
-    def exec(self, image: torch.Tensor, intensity: float) -> tuple[torch.Tensor]:
-        return (to_luminance(image, intensity),)
     
 #===================================================================================
 class mdImageToGrayMask:
     """Extracts a grayscale mask using simple RGB average."""
     @classmethod
     def INPUT_TYPES(cls)-> dict:
-        return {"required": {"image": ("IMAGE",)}}
+        return {
+            "required": {
+                "image": ("IMAGE",),
+                "kind": (["red", "green", "blue", "alpha", "mean", "luminance"],{"default": "luminance"}),
+                "intensity": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 2.0, "step": 0.01,}),
+            }
+        }
 
     RETURN_TYPES = ("MASK",)
     RETURN_NAMES = ("mask",)
     FUNCTION = "exec"
     CATEGORY = module_cat
 
-    def exec(self, image: torch.Tensor) -> tuple[torch.Tensor]:
-        return (to_gray(image),)
+    def exec(self, image: torch.Tensor, kind: str, intensity: float) -> tuple[torch.Tensor]:
+        return (to_gray(image, kind, intensity),)
     
 #=================================================================================== 
 class mdMaskColorSpace:
@@ -127,12 +112,12 @@ class mdTransparencyToMask:
 
     def exec(self, image: torch.Tensor) -> tuple[torch.Tensor]:
         return (trans_mask(image),)
+    
 #===================================================================================
 
 NODE_CLASS_MAPPINGS = {
     "mdBlankMask": mdBlankMask,
     "mdMaskInvert": mdMaskInvert,
-    "mdImageToLuminanceMask": mdImageToLuminanceMask,
     "mdImageToGrayMask": mdImageToGrayMask,
     "mdMaskColorSpace": mdMaskColorSpace,
     "mdTransparencyToMask": mdTransparencyToMask,
@@ -141,7 +126,6 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "mdBlankMask": "Blank Mask (MD)",
     "mdMaskInvert": "Mask Invert (MD)",
-    "mdImageToLuminanceMask": "Image To Luminance Mask (MD)",
     "mdImageToGrayMask": "Image To Gray Mask (MD)",
     "mdMaskColorSpace": "Mask Color Space (MD)",
     "mdTransparencyToMask": "Transparency To Mask (MD)",

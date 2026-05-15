@@ -110,3 +110,4 @@ def image_colorspace(image: torch.Tensor, direction: str) -> torch.Tensor:
         return srgb_to_linear(image)
     else:  # "Linear to sRGB"
         return linear_to_srgb(image)
+    

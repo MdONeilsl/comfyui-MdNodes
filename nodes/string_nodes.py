@@ -62,6 +62,7 @@ class mdStringFormat:
         return (format_string(str, args),)
     
 #===================================================================================
+
 NODE_CLASS_MAPPINGS = {
     "mdTimeString": mdTimeString,
     "mdStringFormat": mdStringFormat,

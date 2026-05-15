@@ -1,5 +1,5 @@
 
-import torch
+
 
 
 # 20 generic colours (name → (R, G, B) in 0‑1 range)
@@ -25,5 +25,7 @@ _COLORS = {
     "brown":   (0.647, 0.165, 0.165),
     "violet":  (0.933, 0.510, 0.933),
 }
+
+
 
 

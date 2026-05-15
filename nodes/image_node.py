@@ -1,3 +1,4 @@
+
 import torch
 from typing import Tuple, Dict, Any
 
@@ -108,6 +109,7 @@ class mdImageColorSpace:
         return (image_colorspace(image, direction),)
         
 #===================================================================================
+
 NODE_CLASS_MAPPINGS = {
     "mdImageToBase64": mdImageToBase64,
     "mdBlankImage": mdBlankImage,

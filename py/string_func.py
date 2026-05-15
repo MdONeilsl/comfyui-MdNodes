@@ -1,5 +1,6 @@
+
 import datetime
-from typing import Any, Tuple
+from typing import Any
 
 #===================================================================================
 def _translate_format(fmt: str) -> str:
@@ -19,13 +20,11 @@ def _translate_format(fmt: str) -> str:
     for old, new in replacements:
         fmt = fmt.replace(old, new)
     return fmt
-
 #===================================================================================
 def get_date(format: str) -> str:
     py_format = _translate_format(format)
     now = datetime.datetime.now()
     return now.strftime(py_format)
-    
 #===================================================================================
 def format_string(format_string: str, args: Any) -> str:
     """Apply `format_string % args` safely.
@@ -48,5 +47,4 @@ def format_string(format_string: str, args: Any) -> str:
     except Exception as e:
         raise ValueError(f"String formatting failed: {e}") from e
     return result
-
 #===================================================================================
