@@ -4,6 +4,7 @@ import torch.nn.functional as F
 
 from typing import Tuple, Any
 
+
 #===================================================================================
 def scale_normal_map(image: torch.Tensor, width: int, height: int, convention: str) -> torch.Tensor:
     if convention not in ("OpenGL", "DirectX"):

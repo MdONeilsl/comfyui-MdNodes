@@ -11,27 +11,6 @@ from ..py.cui_type import ANY
 module_cat = "md/map"
 
 #===================================================================================
-class mdStandardMapSize:
-    
-    @classmethod
-    def INPUT_TYPES(cls) -> dict:
-        return {
-            "required": {
-                "width": ([8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096],),
-                "height": ([8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096], ),
-                "round":(["closest", "ceilling", "flooring"],),
-            },
-        } 
-    
-    RETURN_TYPES = ("INT", "INT", "STRING")
-    RETURN_NAMES = ("width", "height", "round")
-    FUNCTION = "exec"
-    CATEGORY = module_cat
-    
-    def exec(self, width: int, height: int, round: str) -> Tuple[int, int, str]:
-        return (width, height, round)
-    
-#===================================================================================
 class mdNormalMapScaler:
 
     @classmethod
@@ -230,7 +209,6 @@ class mdSplitAlphaChannle:
 #===================================================================================
 
 NODE_CLASS_MAPPINGS = {
-    "mdStandardMapSize": mdStandardMapSize,
     "mdNormalMapScaler": mdNormalMapScaler,
     "mdNormalMapMerger": mdNormalMapMerger,
     "mdHeightToNormalMap": mdHeightToNormalMap,
@@ -242,7 +220,6 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "mdStandardMapSize": "Standard Map Size (MD)",
     "mdNormalMapScaler": "Normal Map Scaler (MD)",
     "mdNormalMapMerger": "Normal Map Merger (MD)",
     "mdHeightToNormalMap": "Height To Normal Map (MD)",
