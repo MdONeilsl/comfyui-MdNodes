@@ -230,7 +230,7 @@ class mdAudioSegmenterSaver:
 
     RETURN_TYPES = ()
     FUNCTION = "segment_and_save"
-    CATEGORY = "audio/processing"
+    CATEGORY = module_cat
     OUTPUT_NODE = True
 
     def get_audio_data(self, audio):
