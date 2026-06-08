@@ -38,7 +38,7 @@ class mdLoadJSONKeyValue:
         json_files = get_input_files_by_extensions(input_dir, (".json",))
         return {
             "required": {
-                "FileName": (json_files,),
+                "FileName": (json_files or ["placeholder.json"],),
                 "name": ("STRING", {"default": "", "multiline": False}),
             }
         }
@@ -49,7 +49,9 @@ class mdLoadJSONKeyValue:
     CATEGORY = module_cat
     
     def exec(self, FileName: str, name: str) -> Tuple[str]:
-        load_json_value(FileName, name)
+        if not FileName or not name:
+            return ("ERROR: FileName and key name are required",)
+        return load_json_value(FileName, name)
     
 #===================================================================================
 
