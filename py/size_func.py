@@ -2,7 +2,7 @@
 STANDARD_SIZES = [8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
 
 #===================================================================================
-def nearest_standard(cls, value, rounding_type="closest"):
+def nearest_standard(value, rounding_type="closest"):
     """Return a standard size according to the specified rounding type.
     
     Args:
@@ -13,24 +13,24 @@ def nearest_standard(cls, value, rounding_type="closest"):
         The snapped standard size.
     """
     # Clamp to the valid range for consistent behavior across all types
-    min_size = cls.STANDARD_SIZES[0]
-    max_size = cls.STANDARD_SIZES[-1]
+    min_size = STANDARD_SIZES[0]
+    max_size = STANDARD_SIZES[-1]
     value = max(min_size, min(max_size, value))
 
     if rounding_type == "closest":
         # Original behavior: minimum absolute difference
-        return min(cls.STANDARD_SIZES, key=lambda x: abs(x - value))
+        return min(STANDARD_SIZES, key=lambda x: abs(x - value))
     
     elif rounding_type == "ceiling":
         # Smallest standard size >= value
-        for size in cls.STANDARD_SIZES:
+        for size in STANDARD_SIZES:
             if size >= value:
                 return size
         return max_size  # should not happen due to clamping
     
     elif rounding_type == "flooring":
         # Largest standard size <= value
-        for size in reversed(cls.STANDARD_SIZES):
+        for size in reversed(STANDARD_SIZES):
             if size <= value:
                 return size
         return min_size  # should not happen due to clamping
