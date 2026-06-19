@@ -191,7 +191,9 @@ class mdSavePBRGLTF:
                 )
 
             # Save to disk (preserves alpha if present)
+            
             disk_path = os.path.join(output_dir, f"{base}_{name}.png")
+            os.makedirs(os.path.dirname(disk_path), exist_ok=True)
             img.save(disk_path)
 
             # Embed in GLB
