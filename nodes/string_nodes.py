@@ -1,4 +1,3 @@
-
 from ..py.cui_type import ANY
 from ..py.string_func import get_date, format_string
 
@@ -24,16 +23,19 @@ class mdTimeString:
     Example: "yyyy-MM-dd HH:mm:ss" -> "2025-03-14 15:30:45"
     """
     
+    DESCRIPTION = "Generates a formatted date/time string using specified tokens."
+    
     @classmethod
     def INPUT_TYPES(cls) -> dict:
         return {
             "required": {
-                "format": ("STRING", {"default": "yyyy-MM-dd", "multiline": False}),
+                "format": ("STRING", {"default": "yyyy-MM-dd", "multiline": False, "tooltip": "Format string with tokens like yyyy, MM, dd, HH, mm, ss, a."}),
             },
         }
 
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("date",)
+    OUTPUT_TOOLTIPS = ["Formatted date/time string."]
     FUNCTION = "exec"
     CATEGORY = module_cat
 
@@ -44,17 +46,20 @@ class mdTimeString:
 class mdStringFormat:
     """Formats a string using printf‑style placeholders (e.g., %s, %d)."""
 
+    DESCRIPTION = "Formats a string using printf-style placeholders like %s, %d, etc., with provided arguments."
+
     @classmethod
     def INPUT_TYPES(cls) -> dict:
         return {
             "required": {
-                "str": ("STRING",),
-                "args": (ANY, {"default": []}),
+                "str": ("STRING", {"tooltip": "String containing printf-style placeholders (e.g., %s, %d)."}),
+                "args": (ANY, {"default": [], "tooltip": "Arguments to substitute into the string (e.g., list of values for %s, %d, etc.)."}),
             },
         }
 
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("result",)
+    OUTPUT_TOOLTIPS = ["Formatted string result."]
     FUNCTION = "exec"          # Fixed: matches the method name
     CATEGORY = module_cat
 
@@ -72,3 +77,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "mdTimeString": "Get Time String (MD)",
     "mdStringFormat": "Format String (MD)",
 }
+

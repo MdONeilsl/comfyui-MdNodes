@@ -5,17 +5,21 @@ module_cat = "md/tags"
 #===================================================================================
 class mdTagUnderscoreOperator:
 
+    DESCRIPTION = "Transforms tags by replacing spaces with underscores (add) or underscores with spaces (remove)."
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "tags_in": ("STRING",{"forceInput": True}),
-                "operator": (["add", "remove"], {"default": "add"}),
+                "tags_in": ("STRING", {"forceInput": True, "tooltip": "Comma-separated list of tags to process."}),
+                "operator": (["add", "remove"], {"default": "add", "tooltip": "Choose to add underscores or remove them from tags."}),
             }
         }
 
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("tags_out",)
+    OUTPUT_TOOLTIPS = ["Comma-separated list of processed tags."]
+
     FUNCTION = "process_tags"
     CATEGORY = module_cat
 
@@ -43,3 +47,4 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "mdTagUnderscoreOperator": "Tag Underscore Operator",
 }
+

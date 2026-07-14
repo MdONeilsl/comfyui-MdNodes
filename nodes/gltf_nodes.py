@@ -6,29 +6,32 @@ module_cat = "md/GLTF"
 
 #===================================================================================
 class mdSavePBRGLTF:
+    DESCRIPTION = "Saves a PBR material as a GLTF file with configurable properties such as color tint, alpha mode, and metallic/roughness factors."
+
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "optional": {
-                "color": ("IMAGE",),
-                "metal": ("IMAGE",),   # ORM
-                "emissive": ("IMAGE",),
-                "normal": ("IMAGE",),
+                "color": ("IMAGE", {"tooltip": "The base color map for the material."}),
+                "metal": ("IMAGE", {"tooltip": "The metalness map for the material (part of ORM)."}),
+                "emissive": ("IMAGE", {"tooltip": "The emissive map for the material."}),
+                "normal": ("IMAGE", {"tooltip": "The normal map for the material."}),
             },
             "required": {
-                "double_size": ("BOOLEAN", {"default": False}),
-                "color_tint": ("INT", {"default": 16777215, "min": 0, "max": 16777215, "display": "color"}),
-                "alpha": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01}),
-                "alpha_mode": (["OPAQUE", "BLEND", "MASK"],),
-                "alpha_cut": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01}),
-                "metallic_factor": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01}),
-                "roughness_factor": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01}),
-                "emissive_color": ("INT", {"default": 0, "min": 0, "max": 16777215, "display": "color"}),
-                "filename_prefix": ("STRING", {"default": "pbr_material"}),
+                "double_size": ("BOOLEAN", {"default": False, "tooltip": "If true, the texture will be saved at double the size."}),
+                "color_tint": ("INT", {"default": 16777215, "min": 0, "max": 16777215, "display": "color", "tooltip": "The color tint value for the material, represented as an integer."}),
+                "alpha": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01, "tooltip": "The alpha value for transparency."}),
+                "alpha_mode": (["OPAQUE", "BLEND", "MASK"], {"tooltip": "The alpha mode for the material (OPAQUE, BLEND, or MASK)."}),
+                "alpha_cut": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01, "tooltip": "The alpha cutoff value for transparency."}),
+                "metallic_factor": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01, "tooltip": "The metallic factor for the material."}),
+                "roughness_factor": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01, "tooltip": "The roughness factor for the material."}),
+                "emissive_color": ("INT", {"default": 0, "min": 0, "max": 16777215, "display": "color", "tooltip": "The emissive color value for the material, represented as an integer."}),
+                "filename_prefix": ("STRING", {"default": "pbr_material", "tooltip": "The prefix for the output GLTF filename."}),
             },
         }
 
     RETURN_TYPES = ()
+    OUTPUT_TOOLTIPS = []
     CATEGORY = module_cat
     FUNCTION = "exec"
     OUTPUT_NODE = True
@@ -52,6 +55,8 @@ class mdSavePBRGLTF:
 
 #===================================================================================
 class mdLoadPBRGLTF:
+    DESCRIPTION = "Loads a PBR material from a GLTF file and returns its maps and properties."
+
     @classmethod
     def INPUT_TYPES(cls):
         input_dir = folder_paths.get_input_directory()
@@ -69,7 +74,7 @@ class mdLoadPBRGLTF:
         files.sort()
         return {
             "required": {
-                "gltf_filename": (files,),
+                "gltf_filename": (files, {"tooltip": "The GLTF file to load."}),
             }
         }
 
@@ -96,6 +101,22 @@ class mdLoadPBRGLTF:
         "emissive_color",
     )
     
+    OUTPUT_TOOLTIPS = [
+        "The base color map for the material.",
+        "The metalness map for the material (part of ORM).",
+        "The emissive map for the material.",
+        "The normal map for the material.",
+        "The occlusion map for the material.",
+        "Whether the material is double-sided.",
+        "The color tint value for the material, represented as an integer.",
+        "The alpha value for transparency.",
+        "The alpha mode for the material (OPAQUE, BLEND, or MASK).",
+        "The alpha cutoff value for transparency.",
+        "The metallic factor for the material.",
+        "The roughness factor for the material.",
+        "The emissive color value for the material, represented as an integer."
+    ]
+    
     CATEGORY = module_cat
     FUNCTION = "exec"
 
@@ -112,3 +133,4 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "mdSavePBRGLTF": "Save PBR GLTF (MD-SL)",
     "mdLoadPBRGLTF": "Load PBR GLTF (MD-SL)",
 }
+

@@ -180,3 +180,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 Note.txt
+
+*.tmp.*
+*test*
+
